@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #big-heart {
+    color: red;
+    font-size: 10vw;
+    animation: pulse 1s infinite alternate;
+  }
+  #text-container {
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 2vw;
+  }
+  .small-heart {
+    position: absolute;
+    color: red;
+    font-size: 2vw;
+    animation: rotate 2s infinite linear;
+  }
+  #list-container{
+   text-align: center;
+   display: flex; 
+   justify-content: center;
+  }
+  #list{
+    color: white;
+    font-size: 2vw;
+    list-style-type: none; 
+    text-align: center;
+    padding: 0;
+  }
+  #item{
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  
+  .small-heart, .tiny-heart {
+    position: absolute;
+    font-size: 24px;
+    color: red;
+    transition: top 2s ease, left 2s ease, opacity 1s ease;
+  }
+  
+  .tiny-heart {
+    font-size: 12px;
+    opacity: 1;
+  }
+    
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #big-heart {
+      font-size: 60px;
+    }
+    #text-container {
+      font-size: 18px;
+    }
+    .small-heart {
+      font-size: 12px;
+    }
+  }
+
+  
