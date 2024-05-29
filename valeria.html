@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Valeria</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #big-heart {
+    color: red;
+    font-size: 10vw;
+    animation: pulse 1s infinite alternate;
+  }
+  #text-container {
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 2vw;
+  }
+  .small-heart {
+    position: absolute;
+    color: red;
+    font-size: 2vw;
+    animation: rotate 2s infinite linear;
+  }
+  #list-container{
+   text-align: center;
+   display: flex; 
+   justify-content: center;
+  }
+  #list{
+    color: white;
+    font-size: 2vw;
+    list-style-type: none; 
+    text-align: center;
+    padding: 0;
+  }
+  #item{
+    margin-bottom: 10px;
+  }
+    
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #big-heart {
+      font-size: 60px;
+    }
+    #text-container {
+      font-size: 18px;
+    }
+    .small-heart {
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="heart-container">
+  <div id="big-heart">&#10084;</div>
+  <div id="text-container">Felices <span id="days"></span> dias amor, te amo</div>
+  <div id="list-container">
+    <ul id="list">
+      <li id="item">Noviazgo: 27/04/2024</li>
+    </ul>
+  </div>
+</div>
+<script>
+
+  var dateInit = new Date('2024-04-27');
+    var date_now = new Date();
+
+    dateInit.setHours(19,0,0,0);
+    date_now.setHours(0,0,0,0);
+    
+    var diff = date_now.getTime() - dateInit.getTime();
+    var oDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+      
+    var countDays = document.getElementById('days');
+    countDays.textContent = oDays;
+    
+  document.addEventListener("DOMContentLoaded", function () {
+    var numHearts = oDays;
+    var container = document.getElementById('heart-container');
+    for (var i = 0; i < numHearts; i++) {
+      var smallHeart = document.createElement('div');
+      smallHeart.className = 'small-heart';
+      smallHeart.style.top = Math.random() * 100 + '%';
+      smallHeart.style.left = Math.random() * 100 + '%';
+      smallHeart.innerHTML = '&#10084;';
+      container.appendChild(smallHeart);
+    }
+
+  });
+</script>
+</body>
+</html>
